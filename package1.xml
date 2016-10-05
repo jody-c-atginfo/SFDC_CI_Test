@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Account</members>
+        <members>BillingID__c</members>
+        <members>Contract</members>
+        <members>Opportunity</members>
+        <name>CustomObject</name>
+    </types>
+	<types>
+		<members>Product2.ACS_Approval_Reqd__c</members>
+		<members>Product2.Approval_limit__c</members>
+		<members>Product2.Available_On_Portal__c</members>
+		<members>Product2.Capacity_Type__c</members>
+		<members>Product2.Capacity_Type_Metric__c</members>
+		<members>Product2.Dynamic_Bundle_Type__c</members>
+		<members>Product2.Floor__c</members>
+		<members>Product2.Location_Field__c</members>
+		<members>Product2.Location_Type__c</members>
+		<members>Product2.Non_Recurring_Price__c</members>
+		<members>Product2.NRC_Multiply__c</members>
+		<members>Product2.Product_Type__c</members>
+		<members>Product2.Product_Units__c</members>
+		<members>Product2.Reporting_Category__c</members>
+		<members>Product2.ROI_Category__c</members>
+		<members>Product2.Sales_Category__c</members>
+
+		<members>User.RVP__c</members>
+        <name>CustomField</name>
+	</types>
+    <types>
+        <members>MassEditAccount</members>
+        <members>MassUpdateAccount</members>
+        <members>MassEditContract</members>
+        <members>MassUpdateContract</members>
+        <members>MassEditOpp</members>
+        <members>MassUpdateOpportunity</members>
+        <name>ApexPage</name>
+    </types>
+    <version>37.0</version>
+</Package>
