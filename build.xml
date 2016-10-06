@@ -278,7 +278,6 @@
 		<attribute name="password" default="${sf.password.from}"/>
 		<attribute name="serverurl" default="${sf.serverurl.from}"/>
 		<sequential>
-		<exec executable="lib/force"
 			<exec executable="lib/force" failonerror="true">
 				<arg value="login"/>
 				<arg value="-u"/>
