@@ -276,13 +276,17 @@
 	<macrodef name="login">
 		<attribute name="username" default="${sf.username.from}"/>
 		<attribute name="password" default="${sf.password.from}"/>
+		<attribute name="serverurl" default="${sf.serverurl.from}"/>
 		<sequential>
-			<exec executable="lib${file.separator}force" failonerror="true">
+		<exec executable="lib/force"
+			<exec executable="lib/force" failonerror="true">
 				<arg value="login"/>
 				<arg value="-u"/>
 				<arg value="@{username}"/>
 				<arg value="-p"/>
 				<arg value="@{password}"/>
+				<arg value="-i"/>
+				<arg value="@{serverurl}"/>
 			</exec>
 		</sequential>
 	</macrodef>
@@ -290,11 +294,12 @@
 	<macrodef name="soql">
 		<attribute name="username" default="${sf.username.from}"/>
 		<attribute name="password" default="${sf.password.from}"/>
+		<attribute name="serverurl" default="${sf.serverurl.from}"/>
 		<attribute name="query"/>
 		<attribute name="outputproperty"/>
 		<sequential>
 			<login username="@{username}" password="@{password}"/>
-			<exec executable="lib${file.separator}force" failonerror="true" outputproperty="@{outputproperty}">
+			<exec executable="lib/force" failonerror="true" outputproperty="@{outputproperty}">
 				<arg value="query"/>
 				<arg value="@{query}"/>
 				<redirector>
