@@ -94,7 +94,7 @@
 	
 	<!-- list CustomObject metadata -->
 	<target name="listMetadata">
-		<sf:listMetadata username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" metadataType="CustomObject" resultFilePath="${sf.servername.from}/list.log"/>
+		<sf:listMetadata username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" metadataType="CustomField" resultFilePath="${sf.servername.from}/list.log"/>
 	</target>
 
 
