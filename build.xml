@@ -237,6 +237,9 @@
 			  <case value="CustomFeedFilter">
 				<echo>Skipping @{type}</echo>
 			  </case>
+			  <case value="EmbeddedServiceConfig">
+				<echo>Skipping @{type}</echo>
+			  </case>
 			  <default>
 					<retry retrycount="3">
 						<sf:listMetadata 
