@@ -220,6 +220,7 @@
 			<echo>Retrieving @{type} metadata${folder.info}</echo>
 			<local name="sf.meta.data.temp.file"/>
 			<tempfile destdir="${temp.dir}" property="sf.meta.data.temp.file" deleteonexit="false" prefix="@{type}.listmetadata" suffix=".temp"/>
+			<taskdef resource="net/sf/antcontrib/antcontrib.properties" />
 			<if>
 				<equals arg1="@{type}" arg2="Certificate"/>
 				<then>
