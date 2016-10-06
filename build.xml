@@ -22,10 +22,8 @@
     <target name="FullMove">
 	  <!-- clean all directories -->
 	  <antcall target="CleanAll"/>
-	  <!-- describe metadata -->
-	  <antcall target="describeMetadata"/>
-	  <!-- list metadata -->
-	  <antcall target="listMetadata"/>
+	  <!-- build package.xml -->
+	  <antcall target="retrieve.all.content"/>
       <!-- Retrieve the contents of the source org -->
       <antcall target="retrieveFromUnpackaged0"/>
       <antcall target="retrieveFromUnpackaged1"/>
@@ -86,17 +84,6 @@
       <mkdir dir="${sf.servername.to}/unpackaged5"/>
       <mkdir dir="${sf.servername.to}"/>
     </target>
-
-	<!-- describe metadata -->
-	<target name="describeMetadata">
-		<sf:describeMetadata username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" resultFilePath="${sf.servername.from}/describe.log"/>
-	</target>
-	
-	<!-- list CustomObject metadata -->
-	<target name="listMetadata">
-		<sf:listMetadata username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" metadataType="CustomField" resultFilePath="${sf.servername.from}/list.log"/>
-	</target>
-
 
     <!-- Retrieve From target -->
     <target name="RetrieveFrom">
@@ -201,4 +188,290 @@
     <target name="retrieveToPackaged">
       <sf:retrieve username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" retrieveTarget="${sf.servername.to}" packageNames="${sf.pkgName}" singlePackage="false" />
     </target>
-</project>
+
+	<macrodef name="listmetadata">
+		<attribute name="username" default="${sf.username.from}"/>
+		<attribute name="password" default="${sf.password.from}"/>
+		<attribute name="serverurl" default="${sf.serverurl.from}"/>
+		<attribute name="type"/>
+		<attribute name="folder" default=""/>
+		<attribute name="file"/>
+		<attribute name="append" default="false"/>
+		<attribute name="apiVersion" default="32.0"/>
+		<attribute name="trace" default="false"/>
+		<sequential>
+			<local name="folder.info"/>
+			<condition property="folder.info" value="" else=" in folder @{folder}">
+				<equals arg1="@{folder}" arg2=""/>
+			</condition>
+			<echo>Retrieving @{type} metadata${folder.info}</echo>
+			<local name="sf.meta.data.temp.file"/>
+			<tempfile destdir="${temp.dir}" property="sf.meta.data.temp.file" deleteonexit="false" prefix="@{type}.listmetadata" suffix=".temp"/>
+			<retry retrycount="3">
+				<sf:listMetadata 
+					username="@{username.from}"
+					password="@{password.from}"
+					serverurl="@{serverurl.from}"
+					metadataType="@{type}"
+					folder="@{folder}"
+					resultFilePath="${sf.meta.data.temp.file}"
+					trace="@{trace}"
+					apiVersion="@{apiVersion}"
+					/>
+			</retry>
+			<local name="type"/>
+			<property name="type" value="@{type}"/>
+			<concat destfile="@{file}" append="@{append}">
+				<fileset file="${sf.meta.data.temp.file}"/>
+				<filterchain>
+					<prefixlines prefix="@@LINE_BREAK@@"/>
+					<striplinebreaks/>
+					<tokenfilter>
+						<replaceregex pattern="@@LINE_BREAK@@(\*+)@@LINE_BREAK@@(\*+)" replace="@@LINE_BREAK@@\1${line.separator}@@LINE_BREAK@@\2" flags="g"/>
+						<replacestring from="**@@LINE_BREAK@@**" to="**${line.separator}**"/>
+					</tokenfilter>
+					<sortfilter/>
+					<tokenfilter>
+						<replacestring from="@@LINE_BREAK@@" to="${line.separator}"/>
+					</tokenfilter>
+					<linecontainsregexp negate="true">
+						<regexp pattern="^\s*$"/>
+					</linecontainsregexp>
+				</filterchain>
+			</concat>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="login">
+		<attribute name="username" default="${sf.username.from}"/>
+		<attribute name="password" default="${sf.password.from}"/>
+		<sequential>
+			<exec executable="lib${file.separator}force" failonerror="true">
+				<arg value="login"/>
+				<arg value="-u"/>
+				<arg value="@{username}"/>
+				<arg value="-p"/>
+				<arg value="@{password}"/>
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="soql">
+		<attribute name="username" default="${sf.username.from}"/>
+		<attribute name="password" default="${sf.password.from}"/>
+		<attribute name="query"/>
+		<attribute name="outputproperty"/>
+		<sequential>
+			<login username="@{username}" password="@{password}"/>
+			<exec executable="lib${file.separator}force" failonerror="true" outputproperty="@{outputproperty}">
+				<arg value="query"/>
+				<arg value="@{query}"/>
+				<redirector>
+					<outputfilterchain>
+						<headfilter lines="-1" skip="2"/>
+						<tailfilter lines="-1" skip="1"/>
+						<trim/>
+					</outputfilterchain>
+				</redirector>
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="retrieveallmetadata">
+		<attribute name="dir" default="${sf.working.dir}"/>
+		<attribute name="alltypes" default="false"/>
+		<sequential>
+			<local name="describe.file"/>
+			<tempfile destdir="${temp.dir}" property="describe.file" prefix="describe." suffix=".metadata" deleteonexit="false"/>
+			<describemetadata file="${describe.file}"/>
+			<local name="sf.describe.metadata"/>
+			<loadfile srcfile="${describe.file}" property="sf.describe.metadata"/>
+			<local name="dir"/>
+			<property name="dir" value="@{dir}"/>
+			<script language="javascript"> <![CDATA[
+				var describeInfo = project.getProperty("sf.describe.metadata");
+				var sections = describeInfo.match(/\*+[^\*]+\*+/gm);
+				var dir = project.getProperty("dir");
+
+				for(var i=0; i<sections.length; i++) {
+					var props = sections[i].replace(/\*\*+/g, '').replace(/^([^\:]+)\:\s*/g, '$1=');
+					var metadatatask = project.createTask("retrievemetadatawrapper");
+					metadatatask.setDynamicAttribute("props", props);
+					metadatatask.setDynamicAttribute("dir", dir);
+					metadatatask.setDynamicAttribute("alltypes", "@{alltypes}");
+					metadatatask.perform();
+				}
+			]]></script>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="retrievemetadatawrapper">
+		<attribute name="props"/>
+		<attribute name="dir" default="${sf.working.dir}"/>
+		<attribute name="typefilename" default="type.metadata"/>
+		<attribute name="subtypefilename" default="subtype.metadata"/>
+		<attribute name="alltypes" default="false"/>
+		<sequential>
+			<local name="props"/>
+			<property name="props" value="@{props}"/>
+			<local name="XMLName"/>
+			<local name="DirName"/>
+			<local name="Suffix"/>
+			<local name="HasMetaFile"/>
+			<local name="InFolder"/>
+			<local name="ChildObjects"/>
+			<loadproperties>
+				<propertyresource name="props"/>
+			</loadproperties>
+			<local name="dir"/>
+			<property name="dir" value="@{dir}"/>
+			<script language="javascript"> <![CDATA[
+				importClass(java.io.File);
+
+				var dir = project.getProperty("dir") + project.getProperty("file.separator") + project.getProperty("DirName");
+				var dirFile = new File(dir);
+
+				if("@{alltypes}"=="true") {
+					var mkdirtask = project.createTask("mkdir");
+					mkdirtask.setDir(dirFile);
+					mkdirtask.perform();
+				}
+
+				if(dirFile.exists() && dirFile.isDirectory()) {
+					var retrievemetadatatask = project.createTask("retrievemetadata");
+					retrievemetadatatask.setDynamicAttribute("dir", dir);
+					retrievemetadatatask.setDynamicAttribute("type", project.getProperty("XMLName"));
+					retrievemetadatatask.setDynamicAttribute("infolders", project.getProperty("InFolder"));
+					retrievemetadatatask.setDynamicAttribute("subtypes", project.getProperty("ChildObjects"));
+					retrievemetadatatask.setDynamicAttribute("typefilename", "@{typefilename}");
+					retrievemetadatatask.setDynamicAttribute("subtypefilename", "@{subtypefilename}");
+					retrievemetadatatask.perform();
+				}
+			]]></script>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="retrievemetadata">
+		<attribute name="dir"/>
+		<attribute name="type"/>
+		<attribute name="infolders" default="false"/>
+		<attribute name="subtypes" default=""/>
+		<attribute name="typefilename" default="type.metadata"/>
+		<attribute name="subtypefilename" default="subtype.metadata"/>
+		<sequential>
+			<local name="typefile"/>
+			<property name="typefile" value="@{dir}${file.separator}@{typefilename}"/>
+			<local name="subtypefile"/>
+			<property name="subtypefile" value="@{dir}${file.separator}@{subtypefilename}"/>
+			<listmetadata type="@{type}" file="${typefile}"/>
+			<script language="javascript"> <![CDATA[
+				importClass(java.io.File);
+				var ls = project.getProperty("line.separator");
+				var subtypesprop = "@{subtypes}";
+				var typefile = project.getProperty("typefile");
+				var subtypefile = project.getProperty("subtypefile");
+				var subtypes = subtypesprop.split('\,');
+				for(var j=0; j<subtypes.length && subtypes[j]!='' && subtypes[j]!='null' && subtypes[j]!='WorkflowFlowAction' && subtypes[j]!='RecordType'; j++) {
+					var subtype = subtypes[j];
+					var listmetadatatask = project.createTask("listmetadata");
+					listmetadatatask.setDynamicAttribute("type", subtype);
+					listmetadatatask.setDynamicAttribute("file", subtypefile);
+					if(j>0) {
+						listmetadatatask.setDynamicAttribute("append", "true");
+					}
+					listmetadatatask.perform();
+					var echo = project.createTask("echo");
+					echo.setAppend(true);
+					echo.setFile(new File(subtypefile));
+					echo.setMessage("TYPE: " + subtype + ls);
+					echo.perform();
+				}
+				var infolder = "@{infolders}";
+				var type = "@{type}";
+				if(infolder.toLowerCase() == 'true') {
+					var getfoldermetadatatask = project.createTask("getfoldersmetadata");
+					getfoldermetadatatask.setDynamicAttribute("type", type);
+					getfoldermetadatatask.setDynamicAttribute("file", typefile);
+					getfoldermetadatatask.perform();
+				}
+				var echo = project.createTask("echo");
+				echo.setAppend(true);
+				echo.setFile(new File(typefile));
+				echo.setMessage("TYPE: " + type + ls);
+				echo.perform();
+			]]></script>
+			<replaceregexp match="(\*)(TYPE:)" replace="\1${line.separator}\2" flags="g">
+				<fileset file="${typefile}"/>
+				<fileset file="${subtypefile}"/>
+			</replaceregexp>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="getfoldersmetadata">
+		<attribute name="type"/>
+		<attribute name="file"/>
+		<sequential>
+			<local name="folders"/>
+			<soql query="SELECT DeveloperName FROM Folder WHERE Type='@{type}' AND DeveloperName&lt;&gt;''" outputproperty="folders"/>
+			<local name="type"/>
+			<property name="type" value="@{type}"/>
+			<local name="file"/>
+			<property name="file" value="@{file}"/>
+			<script language="javascript"> <![CDATA[
+				var foldersString = project.getProperty("folders");
+				var type = project.getProperty("type");
+				var file = project.getProperty("file");
+				var ls = project.getProperty("line.separator");
+				if("Report"==type) {
+					foldersString = "unfiled$public" + ls + foldersString;
+				}
+				var folders = foldersString.split(ls);
+				for(var k = 0; k < folders.length && folders[k]!=""; k++) {
+					var listmetadatatask = project.createTask("listmetadata");
+					listmetadatatask.setDynamicAttribute("type", type);
+					listmetadatatask.setDynamicAttribute("file", file);
+					listmetadatatask.setDynamicAttribute("folder", folders[k]);
+					if(k>0) {
+						listmetadatatask.setDynamicAttribute("append", "true");
+					}
+					listmetadatatask.perform();
+				}
+			]]></script>
+		</sequential>
+	</macrodef>
+	
+	<target name="retrieve.all.metadata">
+		<property name="temp.dir" value="temp"/>
+		<mkdir dir="${temp.dir}"/>
+		<retrieveallmetadata alltypes="true" dir="${temp.dir}"/>
+	</target>
+
+	<target name="retrieve.all.content" depends="retrieve.all.metadata">
+		<property name="temp.dir" value="temp"/>
+		<property name="package.header" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;${line.separator}&lt;Package xmlns=&quot;http://soap.sforce.com/2006/04/metadata&quot;&gt;"/>
+		<property name="package.footer" value="&lt;version&gt;30.0&lt;/version&gt;${line.separator}&lt;/Package&gt;"/>
+		<replaceregexp match="\*+[^\*]+Manageable State\:\s+installed[^\*]+\*+" replace="" flags="mg">
+			<fileset dir="${temp.dir}" includes="**${file.separator}type.metadata,**${file.separator}subtype.metadata"/>
+		</replaceregexp>
+		<tempfile property="all.package.xml" prefix="all.types.package." suffix=".xml" destdir="${temp.dir}" deleteonexit="true"/>
+		<concat destfile="${all.package.xml}">
+			<fileset dir="${temp.dir}" includes="**${file.separator}type.metadata,**${file.separator}subtype.metadata" excludes="installedPackages${file.separator}**,workflows${file.separator}**">
+				<containsregexp expression="^FullName.+\/[^\/]+$"/>
+			</fileset>
+			<header filtering="no" trimleading="no">${package.header}${line.separator}  &lt;types&gt;${line.separator}</header>
+			<filterchain>
+				<linecontainsregexp>
+					<regexp pattern="^(FullName.+\/.+|TYPE:.+)$"/>
+				</linecontainsregexp>
+				<tokenfilter>
+					<replaceregex pattern="FullName/Id:\s*(.+)\/.+$" replace="    &lt;members&gt;\1&lt;\/members&gt;"/>
+					<replaceregex pattern="TYPE:\s*(.+)$" replace="    &lt;name&gt;\1&lt;\/name&gt;${line.separator}  &lt;\/types&gt;${line.separator}  &lt;types&gt;"/>
+				</tokenfilter>
+			</filterchain>
+			<footer filtering="no" trimleading="no">  ${package.footer}</footer>
+		</concat>
+		<replaceregexp file="${all.package.xml}" match="\s*&lt;types&gt;(\s*&lt;version&gt;)" replace="\1" flags="m"/>
+		<sf:retrieve username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" unpackaged="${all.package.xml}" retrieveTarget="${temp.dir}" unzip="true"/>
+	</target>
+	
+	</project>
