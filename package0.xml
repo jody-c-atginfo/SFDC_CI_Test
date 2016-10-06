@@ -9,6 +9,7 @@
     </types>
 	<types>
 		<members>User.RVP__c</members>
+		<members>SBQQ__ProcessInput__c.Location_Field__c</members>
         <name>CustomField</name>
 	</types>
     <version>37.0</version>
