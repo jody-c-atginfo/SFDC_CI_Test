@@ -189,6 +189,17 @@
       <sf:retrieve username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" retrieveTarget="${sf.servername.to}" packageNames="${sf.pkgName}" singlePackage="false" />
     </target>
 
+	<macrodef name="describemetadata">
+		<attribute name="username" default="${sf.username.from}"/>
+		<attribute name="password" default="${sf.password.from}"/>
+		<attribute name="serverurl" default="${sf.serverurl.from}"/>
+		<attribute name="file"/>
+		<attribute name="trace" default="false"/>
+		<sequential>
+			<sf:describeMetadata username="@{username.from}" password="@{password.from}" serverurl="@{serverurl.from}" resultFilePath="@{file}" trace="@{trace}"/>
+		</sequential>
+	</macrodef>
+	
 	<macrodef name="listmetadata">
 		<attribute name="username" default="${sf.username.from}"/>
 		<attribute name="password" default="${sf.password.from}"/>
