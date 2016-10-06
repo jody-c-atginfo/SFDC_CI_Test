@@ -5,11 +5,16 @@
         <members>Contact</members>
         <members>Contract</members>
         <members>Opportunity</members>
+		<members>SBQQ__ProcessInput__c</members>
+		<members>SBQQ__QuoteLine__c</members>
+		<members>SBQQ__Quote__c</members>
+		<members>SBQQ__ProductOption__c</members>
+		<members>SBQQ__QuoteLineGroup__c</members>
+		<members>SBQQ__Subscription__c</members>
         <name>CustomObject</name>
     </types>
 	<types>
 		<members>User.RVP__c</members>
-		<members>SBQQ__ProcessInput__c.Location_Field__c</members>
         <name>CustomField</name>
 	</types>
     <version>37.0</version>
