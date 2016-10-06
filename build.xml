@@ -16,7 +16,6 @@
         <classpath>
             <pathelement location="lib/ant-salesforce.jar" />        	
             <pathelement location="lib/io-core-25.jar" />        	
-            <pathelement location="lib/antcontrib.jar" />        	
         </classpath>
     </taskdef>
 	
@@ -220,7 +219,11 @@
 			<echo>Retrieving @{type} metadata${folder.info}</echo>
 			<local name="sf.meta.data.temp.file"/>
 			<tempfile destdir="${temp.dir}" property="sf.meta.data.temp.file" deleteonexit="false" prefix="@{type}.listmetadata" suffix=".temp"/>
-			<taskdef resource="net/sf/antcontrib/antcontrib.properties" />
+			<taskdef resource="net/sf/antcontrib/antlib.xml"> 
+				<classpath> 
+					<pathelement location="lib/antcontrib.jar" /> 
+				</classpath> 
+			</taskdef>
 			<if>
 				<equals arg1="@{type}" arg2="Certificate"/>
 				<then>
