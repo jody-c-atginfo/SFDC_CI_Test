@@ -331,7 +331,7 @@
 			<local name="HasMetaFile"/>
 			<local name="InFolder"/>
 			<local name="ChildObjects"/>
-			<loadproperties>
+			<loadproperties> 
 				<propertyresource name="props"/>
 			</loadproperties>
 			<local name="dir"/>
