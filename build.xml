@@ -53,7 +53,7 @@
     <!-- Clean directory structure -->
     <target name="CleanAll">
       <!-- Delete directory structure -->
-      <delete dir="${sf.servername.from}/unpackaged9"/>
+      <delete dir="${sf.servername.from}/unpackaged0"/>
       <delete dir="${sf.servername.from}/unpackaged1"/>
       <delete dir="${sf.servername.from}/unpackaged2"/>
       <delete dir="${sf.servername.from}/unpackaged3"/>
