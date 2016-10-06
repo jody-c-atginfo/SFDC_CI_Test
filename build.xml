@@ -13,6 +13,7 @@
     <condition property="sf.password.to" value=""> <not> <isset property="sf.password.to"/> </not> </condition>
 
     <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+	<taskdef resource="net/sf/antcontrib/antlib.xml" />
         <classpath>
             <pathelement location="lib/ant-salesforce.jar" />        	
             <pathelement location="lib/io-core-25.jar" />        	
@@ -219,23 +220,25 @@
 			<echo>Retrieving @{type} metadata${folder.info}</echo>
 			<local name="sf.meta.data.temp.file"/>
 			<tempfile destdir="${temp.dir}" property="sf.meta.data.temp.file" deleteonexit="false" prefix="@{type}.listmetadata" suffix=".temp"/>
-<if>
-<equals arg1="@{type}" arg2="Certificate"/>
-<then></then>
-<else>
-			<retry retrycount="3">
-				<sf:listMetadata 
-					username="@{username}"
-					password="@{password}"
-					serverurl="@{serverurl}"
-					metadataType="@{type}"
-					folder="@{folder}"
-					resultFilePath="${sf.meta.data.temp.file}"
-					trace="@{trace}"
-					apiVersion="@{apiVersion}"
-					/>
-			</retry>
-			</else>
+			<if>
+				<equals arg1="@{type}" arg2="Certificate"/>
+				<then>
+					<echo>Skipping @{type}</echo>
+				</then>
+				<else>
+					<retry retrycount="3">
+						<sf:listMetadata 
+							username="@{username}"
+							password="@{password}"
+							serverurl="@{serverurl}"
+							metadataType="@{type}"
+							folder="@{folder}"
+							resultFilePath="${sf.meta.data.temp.file}"
+							trace="@{trace}"
+							apiVersion="@{apiVersion}"
+							/>
+					</retry>
+				</else>
 			</if>
 
 			<local name="type"/>
