@@ -22,6 +22,8 @@
     <target name="FullMove">
 	  <!-- clean all directories -->
 	  <antcall target="CleanAll"/>
+	  <!-- describe metadata -->
+	  <antcall target="describeMetadata"/>
       <!-- Retrieve the contents of the source org -->
       <antcall target="retrieveFromUnpackaged0"/>
       <antcall target="retrieveFromUnpackaged1"/>
@@ -29,9 +31,9 @@
       <antcall target="retrieveFromUnpackaged3"/>
       <antcall target="retrieveFromUnpackaged4"/>
       <antcall target="retrieveFromUnpackaged5"/>
-      <!--<antcall target="retrieveFromPackaged"/>-->
+      <antcall target="retrieveFromPackaged"/>
       <!-- Deploy contents to target org -->
-      <!--<antcall target="deployPackaged"/>-->
+      <antcall target="deployPackaged"/>
       <antcall target="deployUnpackaged0"/>
       <antcall target="deployUnpackaged1"/>
       <antcall target="deployUnpackaged2"/>
@@ -82,6 +84,11 @@
       <mkdir dir="${sf.servername.to}/unpackaged5"/>
       <mkdir dir="${sf.servername.to}"/>
     </target>
+
+	<!-- describe metadata -->
+	<target name="describeMetadata">
+		<sf:describeMetadata username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" resultFilePath="${sf.servername.from}/describe.log"/>
+	</target>
 
     <!-- Retrieve From target -->
     <target name="RetrieveFrom">
