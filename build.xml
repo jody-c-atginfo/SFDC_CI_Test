@@ -16,6 +16,7 @@
         <classpath>
             <pathelement location="lib/ant-salesforce.jar" />        	
             <pathelement location="lib/io-core-25.jar" />        	
+            <pathelement location="lib/antcontrib.jar" />        	
         </classpath>
     </taskdef>
 	
