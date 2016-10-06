@@ -13,7 +13,6 @@
     <condition property="sf.password.to" value=""> <not> <isset property="sf.password.to"/> </not> </condition>
 
     <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
-	<taskdef resource="net/sf/antcontrib/antlib.xml" />
         <classpath>
             <pathelement location="lib/ant-salesforce.jar" />        	
             <pathelement location="lib/io-core-25.jar" />        	
@@ -220,6 +219,7 @@
 			<echo>Retrieving @{type} metadata${folder.info}</echo>
 			<local name="sf.meta.data.temp.file"/>
 			<tempfile destdir="${temp.dir}" property="sf.meta.data.temp.file" deleteonexit="false" prefix="@{type}.listmetadata" suffix=".temp"/>
+			<taskdef resource="net/sf/antcontrib/antlib.xml" />
 			<if>
 				<equals arg1="@{type}" arg2="Certificate"/>
 				<then>
