@@ -196,7 +196,7 @@
 		<attribute name="file"/>
 		<attribute name="trace" default="false"/>
 		<sequential>
-			<sf:describeMetadata username="@{username.from}" password="@{password.from}" serverurl="@{serverurl.from}" resultFilePath="@{file}" trace="@{trace}"/>
+			<sf:describeMetadata username="@{username}" password="@{password}" serverurl="@{serverurl}" resultFilePath="@{file}" trace="@{trace}"/>
 		</sequential>
 	</macrodef>
 	
