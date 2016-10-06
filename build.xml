@@ -15,6 +15,7 @@
     <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
         <classpath>
             <pathelement location="lib/ant-salesforce.jar" />        	
+            <pathelement location="lib/io-core-25.jar" />        	
         </classpath>
     </taskdef>
 	
@@ -336,10 +337,7 @@
 			</loadproperties>
 			<local name="dir"/>
 			<property name="dir" value="@{dir}"/>
-			<path id="script.classpath">
-				<fileset dir="lib" includes="*.jar"/>
-			</path>
-			<script language="javascript" classpathref="script.classpath"> <![CDATA[
+			<script language="javascript"> <![CDATA[
 				importClass(java.io.File);
 
 				var dir = project.getProperty("dir") + project.getProperty("file.separator") + project.getProperty("DirName");
