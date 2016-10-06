@@ -25,14 +25,23 @@
       <!-- Retrieve the contents of the source org -->
       <antcall target="retrieveFromUnpackaged1"/>
       <antcall target="retrieveFromUnpackaged2"/>
+      <antcall target="retrieveFromUnpackaged3"/>
+      <antcall target="retrieveFromUnpackaged4"/>
+      <antcall target="retrieveFromUnpackaged5"/>
       <!--<antcall target="retrieveFromPackaged"/>-->
       <!-- Deploy contents to target org -->
       <!--<antcall target="deployPackaged"/>-->
       <antcall target="deployUnpackaged1"/>
       <antcall target="deployUnpackaged2"/>
+      <antcall target="deployUnpackaged3"/>
+      <antcall target="deployUnpackaged4"/>
+      <antcall target="deployUnpackaged5"/>
       <!-- Retrieve the contents of the target org for verification -->
       <antcall target="retrieveToUnpackaged1"/>
       <antcall target="retrieveToUnpackaged2"/>
+      <antcall target="retrieveToUnpackaged3"/>
+      <antcall target="retrieveToUnpackaged4"/>
+      <antcall target="retrieveToUnpackaged5"/>
       <antcall target="retrieveToPackaged"/>
     </target>
 
@@ -41,17 +50,29 @@
       <!-- Delete directory structure -->
       <delete dir="${sf.servername.from}/unpackaged1"/>
       <delete dir="${sf.servername.from}/unpackaged2"/>
+      <delete dir="${sf.servername.from}/unpackaged3"/>
+      <delete dir="${sf.servername.from}/unpackaged4"/>
+      <delete dir="${sf.servername.from}/unpackaged5"/>
       <delete dir="${sf.servername.from}"/>
       <delete dir="${sf.servername.to}/unpackaged1"/>
       <delete dir="${sf.servername.to}/unpackaged2"/>
+      <delete dir="${sf.servername.to}/unpackaged3"/>
+      <delete dir="${sf.servername.to}/unpackaged4"/>
+      <delete dir="${sf.servername.to}/unpackaged5"/>
       <delete dir="${sf.servername.to}"/>
 
       <!-- Create directory structure -->
       <mkdir dir="${sf.servername.from}/unpackaged1"/>
       <mkdir dir="${sf.servername.from}/unpackaged2"/>
+      <mkdir dir="${sf.servername.from}/unpackaged3"/>
+      <mkdir dir="${sf.servername.from}/unpackaged4"/>
+      <mkdir dir="${sf.servername.from}/unpackaged5"/>
       <mkdir dir="${sf.servername.from}"/>
       <mkdir dir="${sf.servername.to}/unpackaged1"/>
       <mkdir dir="${sf.servername.to}/unpackaged2"/>
+      <mkdir dir="${sf.servername.to}/unpackaged3"/>
+      <mkdir dir="${sf.servername.to}/unpackaged4"/>
+      <mkdir dir="${sf.servername.to}/unpackaged5"/>
       <mkdir dir="${sf.servername.to}"/>
     </target>
 
@@ -78,6 +99,18 @@
       <sf:retrieve username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" retrieveTarget="${sf.servername.from}/unpackaged2" unpackaged="package2.xml"/>
     </target>
 
+    <target name="retrieveFromUnpackaged3">
+      <sf:retrieve username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" retrieveTarget="${sf.servername.from}/unpackaged3" unpackaged="package3.xml"/>
+    </target>
+
+    <target name="retrieveFromUnpackaged4">
+      <sf:retrieve username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" retrieveTarget="${sf.servername.from}/unpackaged4" unpackaged="package4.xml"/>
+    </target>
+
+    <target name="retrieveFromUnpackaged5">
+      <sf:retrieve username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" retrieveTarget="${sf.servername.from}/unpackaged5" unpackaged="package5.xml"/>
+    </target>
+
     <!-- Retrieve packaged metadata from source org -->
     <target name="retrieveFromPackaged">
       <sf:retrieve username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" retrieveTarget="${sf.servername.from}" packageNames="${sf.pkgName}" singlePackage="false" />
@@ -92,6 +125,18 @@
       <sf:deploy username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" deployRoot="${sf.servername.from}/unpackaged2" rollbackOnError="true"/>
     </target>
 
+    <target name="deployUnpackaged3">
+      <sf:deploy username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" deployRoot="${sf.servername.from}/unpackaged3" rollbackOnError="true"/>
+    </target>
+
+    <target name="deployUnpackaged4">
+      <sf:deploy username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" deployRoot="${sf.servername.from}/unpackaged4" rollbackOnError="true"/>
+    </target>
+
+    <target name="deployUnpackaged5">
+      <sf:deploy username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" deployRoot="${sf.servername.from}/unpackaged5" rollbackOnError="true"/>
+    </target>
+
     <!-- Deploy packaged metadata to the target org -->
     <target name="deployPackaged">
       <sf:deploy username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" deployRoot="${sf.servername.from}/${sf.pkgName}" rollbackOnError="true"/>
@@ -104,6 +149,18 @@
 
     <target name="retrieveToUnpackaged2">
       <sf:retrieve username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" retrieveTarget="${sf.servername.to}/unpackaged2" unpackaged="package2.xml"/>
+    </target>
+
+    <target name="retrieveToUnpackaged3">
+      <sf:retrieve username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" retrieveTarget="${sf.servername.to}/unpackaged3" unpackaged="package3.xml"/>
+    </target>
+
+    <target name="retrieveToUnpackaged4">
+      <sf:retrieve username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" retrieveTarget="${sf.servername.to}/unpackaged4" unpackaged="package4.xml"/>
+    </target>
+
+    <target name="retrieveToUnpackaged5">
+      <sf:retrieve username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" retrieveTarget="${sf.servername.to}/unpackaged5" unpackaged="package5.xml"/>
     </target>
 
     <!-- Retrieve packaged metadata from target org -->

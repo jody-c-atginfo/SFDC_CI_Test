@@ -22,26 +22,6 @@
     </types>
     <types>
         <members>*</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexComponent</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTrigger</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApprovalProcess</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>ArticleType</name>
     </types>
     <types>
@@ -106,10 +86,6 @@
     </types>
     <types>
         <members>*</members>
-        <name>CustomApplication</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>CustomApplicationComponent</name>
     </types>
     <types>
@@ -139,10 +115,6 @@
     <types>
         <members>*</members>
         <name>CustomSite</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomTab</name>
     </types>
     <types>
         <members>*</members>
@@ -186,10 +158,6 @@
     </types>
     <types>
         <members>*</members>
-        <name>Flow</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>Folder</name>
     </types>
     <types>
@@ -225,10 +193,6 @@
     <types>
         <members>*</members>
         <name>KnowledgeSettings</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Layout</name>
     </types>
     <types>
         <members>*</members>
@@ -294,10 +258,6 @@
 -->
     <types>
         <members>*</members>
-        <name>PermissionSet</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>Picklist</name>
     </types>
     <types>
@@ -311,10 +271,6 @@
     <types>
         <members>*</members>
         <name>ProductSettings</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Profile</name>
     </types>
     <types>
         <members>*</members>
@@ -404,9 +360,5 @@
         <members>*</members>
         <name>Weblink</name>
     </types>
-    <types>
-        <members>*</members>
-        <name>Workflow</name>
-    </types>
-    <version>34.0</version>
+    <version>37.0</version>
 </Package>
