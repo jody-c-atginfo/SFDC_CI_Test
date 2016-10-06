@@ -16,8 +16,11 @@
         <members>Contact</members>
         <members>Contract</members>
         <members>Opportunity</members>
-		<members>User</members>
         <name>CustomObject</name>
     </types>
+	<types>
+		<members>User.RVP__c</members>
+        <name>CustomField</name>
+	</types>
     <version>37.0</version>
 </Package>
