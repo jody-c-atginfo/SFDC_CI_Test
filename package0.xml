@@ -5,17 +5,103 @@
         <members>Contact</members>
         <members>Contract</members>
         <members>Opportunity</members>
-		<members>SBQQ__ProcessInput__c</members>
-		<members>SBQQ__QuoteLine__c</members>
-		<members>SBQQ__Quote__c</members>
-		<members>SBQQ__ProductOption__c</members>
-		<members>SBQQ__QuoteLineGroup__c</members>
-		<members>SBQQ__Subscription__c</members>
 		<members>Location__c</members>
         <name>CustomObject</name>
     </types>
 	<types>
 		<members>User.RVP__c</members>
+
+		<members>SBQQ__Subscription__c.A_Locations__c</members>
+		<members>SBQQ__Subscription__c.Cloud_Location__c</members>
+		<members>SBQQ__Subscription__c.Colocation_Location_List__c</members>
+		<members>SBQQ__Subscription__c.Colo_Power__c</members>
+		<members>SBQQ__Subscription__c.Encryption_Location__c</members>
+		<members>SBQQ__Subscription__c.Hosted_Cloud_Location__c</members>
+		<members>SBQQ__Subscription__c.Hosted_Location__c</members>
+		<members>SBQQ__Subscription__c.Installed_Location__c</members>
+		<members>SBQQ__Subscription__c.Monthly_Recurring_Cost__c</members>
+		<members>SBQQ__Subscription__c.Redundancy__c</members>
+		<members>SBQQ__Subscription__c.Service_Provider__c</members>
+		<members>SBQQ__Subscription__c.Z_Locations__c</members>
+
+		<members>SBQQ__QuoteLineGroup__c.Activation_Price_Discount__c</members>
+		<members>SBQQ__QuoteLineGroup__c.Billing_Effective_Date__c</members>
+		<members>SBQQ__QuoteLineGroup__c.Billing_Schedule_Type__c</members>
+		<members>SBQQ__QuoteLineGroup__c.Customer_Requested_Delivery_Date__c</members>
+
+		<members>SBQQ__ProductOption__c.A_Locations__c</members>
+		<members>SBQQ__ProductOption__c.Bundle_Name__c</members>
+		<members>SBQQ__ProductOption__c.Cloud_Location__c</members>
+		<members>SBQQ__ProductOption__c.Colocation_Location_List__c</members>
+		<members>SBQQ__ProductOption__c.Colo_Power__c</members>
+		<members>SBQQ__ProductOption__c.Dynamic_Bundle_Type__c</members>
+		<members>SBQQ__ProductOption__c.Encryption_Location__c</members>
+		<members>SBQQ__ProductOption__c.Service_Provider__c</members>
+		<members>SBQQ__ProductOption__c.Global_Location__c</members>
+		<members>SBQQ__ProductOption__c.Hosted_Cloud_Location__c</members>
+		<members>SBQQ__ProductOption__c.Hosted_Location__c</members>
+		<members>SBQQ__ProductOption__c.Power_Model__c</members>
+		<members>SBQQ__ProductOption__c.Redundancy__c</members>
+		<members>SBQQ__ProductOption__c.Z_Locations__c</members>
+
+		<members>SBQQ__QuoteLine__c.ACS_Approval_Reqd__c</members>
+		<members>SBQQ__QuoteLine__c.Activation_Price__c</members>
+		<members>SBQQ__QuoteLine__c.Activation_Price_Discount__c</members>
+		<members>SBQQ__QuoteLine__c.A_Locations__c</members>
+		<members>SBQQ__QuoteLine__c.Approval_limit__c</members>
+		<members>SBQQ__QuoteLine__c.Approval_limit_breached__c</members>
+		<members>SBQQ__QuoteLine__c.Approval_Required__c</members>
+		<members>SBQQ__QuoteLine__c.Cloud_Location__c</members>
+		<members>SBQQ__QuoteLine__c.Colocation_Location_List__c</members>
+		<members>SBQQ__QuoteLine__c.Colo_Power__c</members>
+		<members>SBQQ__QuoteLine__c.Colo_test__c</members>
+		<members>SBQQ__QuoteLine__c.Document_Grouping__c</members>
+		<members>SBQQ__QuoteLine__c.Document_Grouping_Parent__c</members>
+		<members>SBQQ__QuoteLine__c.Encryption_Location__c</members>
+		<members>SBQQ__QuoteLine__c.Floor_unit_price__c</members>
+		<members>SBQQ__QuoteLine__c.Floor_unit_price_breached__c</members>
+		<members>SBQQ__QuoteLine__c.Fulfillment_Change_Type__c</members>
+		<members>SBQQ__QuoteLine__c.Global_Location__c</members>
+		<members>SBQQ__QuoteLine__c.Group_Activation_Discount__c</members>
+		<members>SBQQ__QuoteLine__c.Hosted_Cloud_Location__c</members>
+		<members>SBQQ__QuoteLine__c.Hosted_Location__c</members>
+		<members>SBQQ__QuoteLine__c.Line_Item_Change_Type__c</members>
+		<members>SBQQ__QuoteLine__c.Location_Test__c</members>
+		<members>SBQQ__QuoteLine__c.Power_Model__c</members>
+		<members>SBQQ__QuoteLine__c.Product_Units__c</members>
+		<members>SBQQ__QuoteLine__c.Redundancy__c</members>
+		<members>SBQQ__QuoteLine__c.Selected_Location__c</members>
+		<members>SBQQ__QuoteLine__c.Service_Provider__c</members>
+		<members>SBQQ__QuoteLine__c.Total_Activation_Price__c</members>
+		<members>SBQQ__QuoteLine__c.Unit_Cost_Breached__c</members>
+		<members>SBQQ__QuoteLine__c.Z_Locations__c</members>
+		
+		<members>SBQQ__ProcessInput__c.Location_Field__c</members>
+		<members>SBQQ__ProcessInput__c.Location_Type__c</members>
+		<members>SBQQ__ProcessInput__c.Product_Family__c</members>
+		<members>SBQQ__ProcessInput__c.Product_Type__c</members>
+
+		<members>SBQQ__Quote__c.Approval_Request_Comments__c</members>
+		<members>SBQQ__Quote__c.Approval_Required_Level_1__c</members>
+		<members>SBQQ__Quote__c.Approval_Required_Level_2__c</members>
+		<members>SBQQ__Quote__c.Approval_Required_Level_3__c</members>
+		<members>SBQQ__Quote__c.Approval_Required_Level_4__c</members>
+		<members>SBQQ__Quote__c.Approval_Required_Level_5__c</members>
+		<members>SBQQ__Quote__c.EditLinesFieldSetName__c</members>
+		<members>SBQQ__Quote__c.Manager_Id__c</members>
+		<members>SBQQ__Quote__c.Opportunity_Sales_Rep__c</members>
+		<members>SBQQ__Quote__c.RVP__c</members>
+		<members>SBQQ__Quote__c.RVP_Id__c</members>
+		<members>SBQQ__Quote__c.Sales_Rep_Role_Id__c</members>
+		<members>SBQQ__Quote__c.Sum_of_Activation_Cost__c</members>
+		<members>SBQQ__Quote__c.Total_Cabinets__c</members>
+		<members>SBQQ__Quote__c.Total_Cage_SqFt__c</members>
+		<members>SBQQ__Quote__c.Total_KW__c</members>
+		<members>SBQQ__Quote__c.Total_Products_ACS_Approval_Reqd__c</members>
+		<members>SBQQ__Quote__c.Total_Products_Approval_Breached__c</members>
+		<members>SBQQ__Quote__c.Total_Products_Cost_Breached__c</members>
+		<members>SBQQ__Quote__c.Total_Products_Floor_Breached__c</members>
+
         <name>CustomField</name>
 	</types>
     <version>37.0</version>
