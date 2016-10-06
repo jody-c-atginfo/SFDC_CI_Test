@@ -252,6 +252,9 @@
 			  <case value="SharingRules">
 				<echo>Skipping @{type}</echo>
 			  </case>
+			  <case value="SharingOwnerRule">
+				<echo>Skipping @{type}</echo>
+			  </case>
 			  <default>
 					<retry retrycount="3">
 						<sf:listMetadata 
