@@ -249,6 +249,9 @@
 			  <case value="MatchingRule">
 				<echo>Skipping @{type}</echo>
 			  </case>
+			  <case value="SharingRules">
+				<echo>Skipping @{type}</echo>
+			  </case>
 			  <default>
 					<retry retrycount="3">
 						<sf:listMetadata 
