@@ -224,12 +224,14 @@
 					<pathelement location="lib/antcontrib.jar" /> 
 				</classpath> 
 			</taskdef>
-			<if>
-				<equals arg1="@{type}" arg2="Certificate"/>
-				<then>
-					<echo>Skipping @{type}</echo>
-				</then>
-				<else>
+			<switch value="@{type}">
+			  <case value="Certificate">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="NamedCredential ">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <default>
 					<retry retrycount="3">
 						<sf:listMetadata 
 							username="@{username}"
@@ -242,8 +244,8 @@
 							apiVersion="@{apiVersion}"
 							/>
 					</retry>
-				</else>
-			</if>
+				</default>
+				</switch>
 
 			<local name="type"/>
 			<property name="type" value="@{type}"/>
