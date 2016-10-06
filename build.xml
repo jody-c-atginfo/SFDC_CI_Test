@@ -228,7 +228,7 @@
 			  <case value="Certificate">
 				<echo>Skipping @{type}</echo>
 			  </case>
-			  <case value="NamedCredential ">
+			  <case value="NamedCredential">
 				<echo>Skipping @{type}</echo>
 			  </case>
 			  <default>
