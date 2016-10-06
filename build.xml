@@ -221,9 +221,9 @@
 			<tempfile destdir="${temp.dir}" property="sf.meta.data.temp.file" deleteonexit="false" prefix="@{type}.listmetadata" suffix=".temp"/>
 			<retry retrycount="3">
 				<sf:listMetadata 
-					username="@{username.from}"
-					password="@{password.from}"
-					serverurl="@{serverurl.from}"
+					username="@{username}"
+					password="@{password}"
+					serverurl="@{serverurl}"
 					metadataType="@{type}"
 					folder="@{folder}"
 					resultFilePath="${sf.meta.data.temp.file}"
