@@ -11,6 +11,7 @@
 		<members>SBQQ__ProductOption__c</members>
 		<members>SBQQ__QuoteLineGroup__c</members>
 		<members>SBQQ__Subscription__c</members>
+		<members>Location__c</members>
         <name>CustomObject</name>
     </types>
 	<types>

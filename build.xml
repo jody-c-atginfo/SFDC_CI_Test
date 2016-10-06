@@ -24,6 +24,8 @@
 	  <antcall target="CleanAll"/>
 	  <!-- describe metadata -->
 	  <antcall target="describeMetadata"/>
+	  <!-- list metadata -->
+	  <antcall target="listMetadata"/>
       <!-- Retrieve the contents of the source org -->
       <antcall target="retrieveFromUnpackaged0"/>
       <antcall target="retrieveFromUnpackaged1"/>
@@ -89,6 +91,12 @@
 	<target name="describeMetadata">
 		<sf:describeMetadata username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" resultFilePath="${sf.servername.from}/describe.log"/>
 	</target>
+	
+	<!-- list CustomObject metadata -->
+	<target name="listMetadata">
+		<sf:listMetadata username="${sf.username.from}" password="${sf.password.from}" serverurl="${sf.serverurl.from}" metadataType="CustomObject" resultFilePath="${sf.servername.from}/list.log"/>
+	</target>
+
 
     <!-- Retrieve From target -->
     <target name="RetrieveFrom">
