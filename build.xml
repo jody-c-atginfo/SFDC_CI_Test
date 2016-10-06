@@ -31,9 +31,9 @@
       <antcall target="retrieveFromUnpackaged3"/>
       <antcall target="retrieveFromUnpackaged4"/>
       <antcall target="retrieveFromUnpackaged5"/>
-      <antcall target="retrieveFromPackaged"/>
+      <!--<antcall target="retrieveFromPackaged"/>-->
       <!-- Deploy contents to target org -->
-      <antcall target="deployPackaged"/>
+      <!--<antcall target="deployPackaged"/>-->
       <antcall target="deployUnpackaged0"/>
       <antcall target="deployUnpackaged1"/>
       <antcall target="deployUnpackaged2"/>
@@ -47,7 +47,7 @@
       <antcall target="retrieveToUnpackaged3"/>
       <antcall target="retrieveToUnpackaged4"/>
       <antcall target="retrieveToUnpackaged5"/>
-      <antcall target="retrieveToPackaged"/>
+      <!--<antcall target="retrieveToPackaged"/>-->
     </target>
 
     <!-- Clean directory structure -->
