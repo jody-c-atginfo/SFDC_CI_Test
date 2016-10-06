@@ -338,8 +338,6 @@
 			<local name="dir"/>
 			<property name="dir" value="@{dir}"/>
 			<script language="javascript"> <![CDATA[
-				importClass(java.io.File);
-
 				var dir = project.getProperty("dir") + project.getProperty("file.separator") + project.getProperty("DirName");
 				var dirFile = new File(dir);
 
@@ -377,7 +375,6 @@
 			<property name="subtypefile" value="@{dir}${file.separator}@{subtypefilename}"/>
 			<listmetadata type="@{type}" file="${typefile}"/>
 			<script language="javascript"> <![CDATA[
-				importClass(java.io.File);
 				var ls = project.getProperty("line.separator");
 				var subtypesprop = "@{subtypes}";
 				var typefile = project.getProperty("typefile");
