@@ -337,9 +337,9 @@
 			<local name="dir"/>
 			<property name="dir" value="@{dir}"/>
 			<path id="script.classpath">
-				<fileset dir="lib" includes="**/*.jar"/>
+				<fileset dir="lib" includes="*.jar"/>
 			</path>
-			<script language="javascript"classpathref="script.classpath"> <![CDATA[
+			<script language="javascript" classpathref="script.classpath"> <![CDATA[
 				importClass(java.io.File);
 
 				var dir = project.getProperty("dir") + project.getProperty("file.separator") + project.getProperty("DirName");
