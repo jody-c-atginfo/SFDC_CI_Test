@@ -25,8 +25,9 @@
 	  <antcall target="CleanAll"/>
 	  <!-- build package.xml -->
 	  <antcall target="retrieve.all.content"/>
+      <antcall target="deployAll"/>
       <!-- Retrieve the contents of the source org -->
-      <antcall target="retrieveFromUnpackaged0"/>
+      <!--<antcall target="retrieveFromUnpackaged0"/>
       <antcall target="retrieveFromUnpackaged1"/>
       <antcall target="retrieveFromUnpackaged2"/>
       <antcall target="retrieveFromUnpackaged3"/>
@@ -35,14 +36,14 @@
       <!--<antcall target="retrieveFromPackaged"/>-->
       <!-- Deploy contents to target org -->
       <!--<antcall target="deployPackaged"/>-->
-      <antcall target="deployUnpackaged0"/>
+      <!--<antcall target="deployUnpackaged0"/>
       <antcall target="deployUnpackaged1"/>
       <antcall target="deployUnpackaged2"/>
       <antcall target="deployUnpackaged3"/>
       <antcall target="deployUnpackaged4"/>
       <antcall target="deployUnpackaged5"/>
       <!-- Retrieve the contents of the target org for verification -->
-      <antcall target="retrieveToUnpackaged0"/>
+      <!--<antcall target="retrieveToUnpackaged0"/>
       <antcall target="retrieveToUnpackaged1"/>
       <antcall target="retrieveToUnpackaged2"/>
       <antcall target="retrieveToUnpackaged3"/>
@@ -131,6 +132,10 @@
     </target>
 
     <!-- Deploy unpackaged metadata to the target org -->
+    <target name="deployAll">
+      <sf:deploy username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" deployRoot="${sf.servername.from}/temp/package.xml" rollbackOnError="true"/>
+    </target>
+
     <target name="deployUnpackaged0">
       <sf:deploy username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" deployRoot="${sf.servername.from}/unpackaged0" rollbackOnError="true"/>
     </target>
@@ -209,7 +214,7 @@
 		<attribute name="folder" default=""/>
 		<attribute name="file"/>
 		<attribute name="append" default="false"/>
-		<attribute name="apiVersion" default="32.0"/>
+		<attribute name="apiVersion" default="37.0"/>
 		<attribute name="trace" default="false"/>
 		<sequential>
 			<local name="folder.info"/>
