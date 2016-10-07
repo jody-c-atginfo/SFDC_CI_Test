@@ -215,7 +215,7 @@
 		<attribute name="folder" default=""/>
 		<attribute name="file"/>
 		<attribute name="append" default="false"/>
-		<attribute name="apiVersion" default="37.0"/>
+		<attribute name="apiVersion" default="36.0"/>
 		<attribute name="trace" default="false"/>
 		<sequential>
 					<local name="folder.info"/>
@@ -457,6 +457,7 @@
 			  <default>
 				<echo>XXXXXXXXXXXXXXXXX In Seq for Type: @{type}</echo>
 				<echo>XXXXXXXXXXXXXXXXX Typefilename: @{typefilename}</echo>
+				<echo>XXXXXXXXXXXXXXXXX typefile: @{typefile}</echo>
 				<echo>XXXXXXXXXXXXXXXXX Subtypefilename: @{subtypefilename}</echo>
 			<local name="typefile"/>
 			<property name="typefile" value="@{dir}${file.separator}@{typefilename}"/>
@@ -557,7 +558,7 @@
 		</replaceregexp>
 		<tempfile property="all.package.xml" prefix="all.types.package." suffix=".xml" destdir="${temp.dir}" deleteonexit="true"/>
 		<concat destfile="${all.package.xml}">
-			<fileset dir="${temp.dir}" includes="**${file.separator}type.metadata,**${file.separator}subtype.metadata" excludes="installedPackages${file.separator}**,workflows${file.separator}**,pages/SpringCM**">
+			<fileset dir="${temp.dir}" includes="**${file.separator}type.metadata,**${file.separator}subtype.metadata" excludes="installedPackages${file.separator}**,workflows${file.separator}**">
 				<containsregexp expression="^FullName.+\/[^\/]+$"/>
 			</fileset>
 			<header filtering="no" trimleading="no">${package.header}${line.separator}  &lt;types&gt;${line.separator}</header>
