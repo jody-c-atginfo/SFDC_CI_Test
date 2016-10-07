@@ -261,6 +261,9 @@
 			  <case value="DelegateGroup">
 				<echo>Skipping @{type}</echo>
 			  </case>
+			  <case value="ActionLinkGroupTemplate">
+				<echo>Skipping @{type}</echo>
+			  </case>
 			  <default>
 					<retry retrycount="3">
 						<sf:listMetadata 
