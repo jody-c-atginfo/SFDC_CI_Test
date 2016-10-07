@@ -276,6 +276,18 @@
 			  <case value="PlatformCachePartition">
 				<echo>Skipping @{type}</echo>
 			  </case>
+			  <case value="EmbeddedServiceConfig">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="reportTypes">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="reports">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="dashboards">
+				<echo>Skipping @{type}</echo>
+			  </case>
 			  <default>
 					<retry retrycount="3">
 						<sf:listMetadata 
