@@ -523,7 +523,7 @@
 	<target name="retrieve.all.content" depends="retrieve.all.metadata">
 		<property name="temp.dir" value="temp"/>
 		<property name="package.header" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;${line.separator}&lt;Package xmlns=&quot;http://soap.sforce.com/2006/04/metadata&quot;&gt;"/>
-		<property name="package.footer" value="&lt;version&gt;30.0&lt;/version&gt;${line.separator}&lt;/Package&gt;"/>
+		<property name="package.footer" value="&lt;version&gt;37.0&lt;/version&gt;${line.separator}&lt;/Package&gt;"/>
 		<replaceregexp match="\*+[^\*]+Manageable State\:\s+installed[^\*]+\*+" replace="" flags="mg">
 			<fileset dir="${temp.dir}" includes="**${file.separator}type.metadata,**${file.separator}subtype.metadata"/>
 		</replaceregexp>
