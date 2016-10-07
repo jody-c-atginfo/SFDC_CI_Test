@@ -557,7 +557,7 @@
 		</replaceregexp>
 		<tempfile property="all.package.xml" prefix="all.types.package." suffix=".xml" destdir="${temp.dir}" deleteonexit="true"/>
 		<concat destfile="${all.package.xml}">
-			<fileset dir="${temp.dir}" includes="**${file.separator}type.metadata,**${file.separator}subtype.metadata" excludes="installedPackages${file.separator}**,workflows${file.separator}**">
+			<fileset dir="${temp.dir}" includes="**${file.separator}type.metadata,**${file.separator}subtype.metadata" excludes="installedPackages${file.separator}**,workflows${file.separator}**,pages/SpringCM**">
 				<containsregexp expression="^FullName.+\/[^\/]+$"/>
 			</fileset>
 			<header filtering="no" trimleading="no">${package.header}${line.separator}  &lt;types&gt;${line.separator}</header>
