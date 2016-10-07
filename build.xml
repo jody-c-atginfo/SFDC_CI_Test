@@ -133,7 +133,7 @@
 
     <!-- Deploy unpackaged metadata to the target org -->
     <target name="deployAll">
-      <sf:deploy username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" deployRoot="${sf.servername.from}/temp/package.xml" rollbackOnError="true"/>
+      <sf:deploy username="${sf.username.to}" password="${sf.password.to}" serverurl="${sf.serverurl.to}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" deployRoot="temp/package.xml" rollbackOnError="true"/>
     </target>
 
     <target name="deployUnpackaged0">
