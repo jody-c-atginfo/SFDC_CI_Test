@@ -442,8 +442,8 @@
 				<echo>Skipping @{type}</echo>
 			  </case>
 			  <default>
-		<sequential>
 				<echo>XXXXXXXXXXXXXXXXX In Seq for Type: @{type}</echo>
+		<sequential>
 			<local name="typefile"/>
 			<property name="typefile" value="@{dir}${file.separator}@{typefilename}"/>
 			<local name="subtypefile"/>
