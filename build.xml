@@ -264,6 +264,9 @@
 			  <case value="ActionLinkGroupTemplate">
 				<echo>Skipping @{type}</echo>
 			  </case>
+			  <case value="PathAssistant">
+				<echo>Skipping @{type}</echo>
+			  </case>
 			  <default>
 					<retry retrycount="3">
 						<sf:listMetadata 
