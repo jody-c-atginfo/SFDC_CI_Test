@@ -218,65 +218,6 @@
 		<attribute name="apiVersion" default="37.0"/>
 		<attribute name="trace" default="false"/>
 		<sequential>
-		<switch value="@{type}">
-		  <case value="Certificate">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="NamedCredential">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="GlobalPicklist">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="CustomFeedFilter">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="EmbeddedServiceConfig">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="FlowDefinition">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="MatchingRules">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="MatchingRule">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="SharingRules">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="SharingOwnerRule">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="SharingCriteriaRule">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="DelegateGroup">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="ActionLinkGroupTemplate">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="PathAssistant">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="PlatformCachePartition">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="EmbeddedServiceConfig">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="reportTypes">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="reports">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <case value="dashboards">
-			<echo>Skipping @{type}</echo>
-		  </case>
-		  <default>
 					<local name="folder.info"/>
 					<condition property="folder.info" value="" else=" in folder @{folder}">
 						<equals arg1="@{folder}" arg2=""/>
@@ -321,8 +262,6 @@
 							</linecontainsregexp>
 						</filterchain>
 					</concat>
-			</default>
-			</switch>
 		</sequential>
 	</macrodef>
 
@@ -449,7 +388,68 @@
 			<property name="typefile" value="@{dir}${file.separator}@{typefilename}"/>
 			<local name="subtypefile"/>
 			<property name="subtypefile" value="@{dir}${file.separator}@{subtypefilename}"/>
-			<listmetadata type="@{type}" file="${typefile}"/>
+			<switch value="@{type}">
+			  <case value="Certificate">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="NamedCredential">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="GlobalPicklist">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="CustomFeedFilter">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="EmbeddedServiceConfig">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="FlowDefinition">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="MatchingRules">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="MatchingRule">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="SharingRules">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="SharingOwnerRule">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="SharingCriteriaRule">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="DelegateGroup">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="ActionLinkGroupTemplate">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="PathAssistant">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="PlatformCachePartition">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="EmbeddedServiceConfig">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="reportTypes">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="reports">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="dashboards">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <default>
+				<listmetadata type="@{type}" file="${typefile}"/>
+ 			  </default>
+			</switch>
 			<script language="javascript"> <![CDATA[
 				var ls = project.getProperty("line.separator");
 				var subtypesprop = "@{subtypes}";
