@@ -378,11 +378,6 @@
 		<attribute name="subtypes" default=""/>
 		<attribute name="typefilename" default="type.metadata"/>
 		<attribute name="subtypefilename" default="subtype.metadata"/>
-		<sequential>
-			<local name="typefile"/>
-			<property name="typefile" value="@{dir}${file.separator}@{typefilename}"/>
-			<local name="subtypefile"/>
-			<property name="subtypefile" value="@{dir}${file.separator}@{subtypefilename}"/>
 			<taskdef resource="net/sf/antcontrib/antlib.xml"> 
 				<classpath> 
 					<pathelement location="lib/antcontrib.jar" /> 
@@ -447,9 +442,12 @@
 				<echo>Skipping @{type}</echo>
 			  </case>
 			  <default>
+		<sequential>
+			<local name="typefile"/>
+			<property name="typefile" value="@{dir}${file.separator}@{typefilename}"/>
+			<local name="subtypefile"/>
+			<property name="subtypefile" value="@{dir}${file.separator}@{subtypefilename}"/>
 				<listmetadata type="@{type}" file="${typefile}"/>
- 			  </default>
-			</switch>
 			<script language="javascript"> <![CDATA[
 				var ls = project.getProperty("line.separator");
 				var subtypesprop = "@{subtypes}";
@@ -490,6 +488,8 @@
 				<fileset file="${subtypefile}"/>
 			</replaceregexp>
 		</sequential>
+ 			  </default>
+			</switch>
 	</macrodef>
 
 	<macrodef name="getfoldersmetadata">
