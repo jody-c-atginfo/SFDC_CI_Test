@@ -511,6 +511,8 @@
 		<attribute name="type"/>
 		<attribute name="file"/>
 		<sequential>
+		<echo>XXXXXXXXXXXXXXXXX file: @{file}</echo>
+		<echo>XXXXXXXXXXXXXXXXX folders: @{folders}</echo>
 			<local name="folders"/>
 			<soql query="SELECT DeveloperName FROM Folder WHERE Type='@{type}' AND DeveloperName&lt;&gt;''" outputproperty="folders"/>
 			<local name="type"/>
