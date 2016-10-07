@@ -23,11 +23,8 @@
     <target name="FullMove">
 	  <!-- clean all directories -->
 	  <antcall target="CleanAll"/>
-	  <!-- build package.xml -->
-	  <antcall target="retrieve.all.content"/>
-      <antcall target="deployAll"/>
       <!-- Retrieve the contents of the source org -->
-      <!--<antcall target="retrieveFromUnpackaged0"/>-->
+      <antcall target="retrieveFromUnpackaged0"/>
       <!--<antcall target="retrieveFromUnpackaged1"/>-->
       <!--<antcall target="retrieveFromUnpackaged2"/>-->
       <!--<antcall target="retrieveFromUnpackaged3"/>-->
@@ -36,7 +33,7 @@
       <!--<antcall target="retrieveFromPackaged"/>-->
       <!-- Deploy contents to target org -->
       <!--<antcall target="deployPackaged"/>-->
-      <!--<antcall target="deployUnpackaged0"/>-->
+      <antcall target="deployUnpackaged0"/>
       <!--<antcall target="deployUnpackaged1"/>-->
       <!--<antcall target="deployUnpackaged2"/>-->
       <!--<antcall target="deployUnpackaged3"/>-->
@@ -50,6 +47,9 @@
       <!--<antcall target="retrieveToUnpackaged4"/>-->
       <!--<antcall target="retrieveToUnpackaged5"/>-->
       <!--<antcall target="retrieveToPackaged"/>-->
+	  <!-- build package.xml -->
+	  <antcall target="retrieve.all.content"/>
+      <antcall target="deployAll"/>
     </target>
 
     <!-- Clean directory structure -->
