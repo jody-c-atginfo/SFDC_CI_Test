@@ -442,6 +442,18 @@
 			  <case value="Dashboard">
 				<echo>Skipping @{type}</echo>
 			  </case>
+			  <case value="ApprovalProcess">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="SamlSsoConfig">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="ConnectedApp">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="Layout">
+				<echo>Skipping @{type}</echo>
+			  </case>
 			  <default>
 				<echo>XXXXXXXXXXXXXXXXX In Seq for Type: @{type}</echo>
 			<local name="typefile"/>
