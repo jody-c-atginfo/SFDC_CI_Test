@@ -378,6 +378,7 @@
 		<attribute name="subtypes" default=""/>
 		<attribute name="typefilename" default="type.metadata"/>
 		<attribute name="subtypefilename" default="subtype.metadata"/>
+		<sequential>
 			<taskdef resource="net/sf/antcontrib/antlib.xml"> 
 				<classpath> 
 					<pathelement location="lib/antcontrib.jar" /> 
@@ -443,7 +444,6 @@
 			  </case>
 			  <default>
 				<echo>XXXXXXXXXXXXXXXXX In Seq for Type: @{type}</echo>
-		<sequential>
 			<local name="typefile"/>
 			<property name="typefile" value="@{dir}${file.separator}@{typefilename}"/>
 			<local name="subtypefile"/>
@@ -488,9 +488,9 @@
 				<fileset file="${typefile}"/>
 				<fileset file="${subtypefile}"/>
 			</replaceregexp>
-		</sequential>
  			  </default>
 			</switch>
+		</sequential>
 	</macrodef>
 
 	<macrodef name="getfoldersmetadata">
