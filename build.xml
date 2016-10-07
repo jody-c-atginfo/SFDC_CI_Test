@@ -456,6 +456,8 @@
 			  </case>
 			  <default>
 				<echo>XXXXXXXXXXXXXXXXX In Seq for Type: @{type}</echo>
+				<echo>XXXXXXXXXXXXXXXXX Typefilename: @{typefilename}</echo>
+				<echo>XXXXXXXXXXXXXXXXX Subtypefilename: @{subtypefilename}</echo>
 			<local name="typefile"/>
 			<property name="typefile" value="@{dir}${file.separator}@{typefilename}"/>
 			<local name="subtypefile"/>
