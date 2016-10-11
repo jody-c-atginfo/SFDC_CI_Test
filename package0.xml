@@ -5,5 +5,8 @@
         <members>Opportunity.Sales_Opportunity</members>
         <name>RecordType</name>
     </types>
+	<types>
+	<members>Product2</members>
+	</types>
     <version>37.0</version>
 </Package>
