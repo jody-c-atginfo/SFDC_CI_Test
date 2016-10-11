@@ -6,7 +6,8 @@
         <name>RecordType</name>
     </types>
 	<types>
-	<members>Product2</members>
+	<members>Product2.ACS_Approval_Reqd__c</members>
+	<name>CustomField</name>
 	</types>
     <version>37.0</version>
 </Package>
