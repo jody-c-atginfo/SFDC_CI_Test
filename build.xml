@@ -455,15 +455,15 @@
 				<echo>Skipping @{type}</echo>
 			  </case>
 			  <default>
-				<echo>XXXXXXXXXXXXXXXXX In Seq for Type: @{type}</echo>
-				<echo>XXXXXXXXXXXXXXXXX Typefilename: @{typefilename}</echo>
-				<echo>XXXXXXXXXXXXXXXXX typefile: @{typefile}</echo>
-				<echo>XXXXXXXXXXXXXXXXX Subtypefilename: @{subtypefilename}</echo>
 			<local name="typefile"/>
 			<property name="typefile" value="@{dir}${file.separator}@{typefilename}"/>
 			<local name="subtypefile"/>
 			<property name="subtypefile" value="@{dir}${file.separator}@{subtypefilename}"/>
 				<listmetadata type="@{type}" file="${typefile}"/>
+				<echo>XXXXXXXXXXXXXXXXX In Seq for Type: @{type}</echo>
+				<echo>XXXXXXXXXXXXXXXXX Typefilename: @{typefilename}</echo>
+				<echo>XXXXXXXXXXXXXXXXX typefile: @{typefile}</echo>
+				<echo>XXXXXXXXXXXXXXXXX Subtypefilename: @{subtypefilename}</echo>
 			<script language="javascript"> <![CDATA[
 				var ls = project.getProperty("line.separator");
 				var subtypesprop = "@{subtypes}";
