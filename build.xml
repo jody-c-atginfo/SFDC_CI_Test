@@ -468,6 +468,12 @@
 			  <case value="Layout">
 				<echo>Skipping @{type}</echo>
 			  </case>
+			  <case value="Profile">
+				<echo>Skipping @{type}</echo>
+			  </case>
+			  <case value="PermissionSet">
+				<echo>Skipping @{type}</echo>
+			  </case>
 			  <default>
 			<local name="typefile"/>
 			<property name="typefile" value="@{dir}${file.separator}@{typefilename}"/>
