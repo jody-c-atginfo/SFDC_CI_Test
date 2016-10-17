@@ -400,10 +400,10 @@
 			  <case value="EmbeddedServiceConfig">
 				<echo>Skipping @{type}</echo>
 			  </case>
-			  <case value="Flow">
+<!--			  <case value="Flow">
 				<echo>Skipping @{type}</echo>
 			  </case>
-<!--			  <case value="FlowDefinition">
+			  <case value="FlowDefinition">
 				<echo>Skipping @{type}</echo>
 			  </case>
 -->			  <case value="MatchingRules">
