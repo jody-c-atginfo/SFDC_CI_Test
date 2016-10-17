@@ -215,7 +215,7 @@
 		<attribute name="folder" default=""/>
 		<attribute name="file"/>
 		<attribute name="append" default="false"/>
-		<attribute name="apiVersion" default="36.0"/>
+		<attribute name="apiVersion" default="38.0"/>
 		<attribute name="trace" default="false"/>
 		<sequential>
 					<local name="folder.info"/>
