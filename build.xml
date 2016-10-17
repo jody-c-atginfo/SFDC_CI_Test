@@ -37,21 +37,22 @@
 
 	  <!-- Post Deploy all work -->
       <antcall target="retrieveFromUnpackaged1"/>
-      <antcall target="deployUnpackaged1"/>
+      <antcall target="retrieveFromUnpackaged2"/>
+      <antcall target="retrieveFromUnpackaged3"/>
+      <antcall target="retrieveFromUnpackaged4"/>
+      <antcall target="retrieveFromUnpackaged5"/>
+      
+	  <antcall target="deployUnpackaged1"/>
+      <antcall target="deployUnpackaged2"/>
+      <antcall target="deployUnpackaged3"/>
+      <antcall target="deployUnpackaged4"/>
+      <antcall target="deployUnpackaged5"/>
 
 	  
       <!-- Retrieve the contents of the source org -->
-      <!--<antcall target="retrieveFromUnpackaged2"/>-->
-      <!--<antcall target="retrieveFromUnpackaged3"/>-->
-      <!--<antcall target="retrieveFromUnpackaged4"/>-->
-      <!--<antcall target="retrieveFromUnpackaged5"/>-->
       <!--<antcall target="retrieveFromPackaged"/>-->
       <!-- Deploy contents to target org -->
       <!--<antcall target="deployPackaged"/>-->
-      <!--<antcall target="deployUnpackaged2"/>-->
-      <!--<antcall target="deployUnpackaged3"/>-->
-      <!--<antcall target="deployUnpackaged4"/>-->
-      <!--<antcall target="deployUnpackaged5"/>-->
       <!-- Retrieve the contents of the target org for verification -->
       <!--<antcall target="retrieveToUnpackaged0"/>-->
       <!--<antcall target="retrieveToUnpackaged1"/>-->
