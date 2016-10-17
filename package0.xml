@@ -5,6 +5,10 @@
         <name>BusinessProcess</name>
     </types>
     <types>
+        <members>*</members>
+        <name>GlobalPicklist</name>
+    </types>
+    <types>
         <members>Opportunity.Customer_Portal</members>
         <members>Opportunity.Sales_Opportunity</members>
         <name>RecordType</name>
