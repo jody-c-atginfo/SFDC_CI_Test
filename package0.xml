@@ -13,5 +13,5 @@
         <members>Opportunity.Sales_Opportunity</members>
         <name>RecordType</name>
     </types>
-    <version>38.0</version>
+    <version>37.0</version>
 </Package>
