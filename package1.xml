@@ -4,6 +4,13 @@
         <members>*</members>
         <name>Flow</name>
     </types>
-
+    <types>
+        <members>*</members>
+        <name>GlobalPicklist</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>SharingRules</name>
+    </types>
     <version>37.0</version>
 </Package>
