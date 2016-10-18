@@ -408,118 +408,118 @@
 				</case>
 				<case value="Layout">
 					<echo>Skipping @{type}</echo>
-			  </case>
+				</case>
 				<case value="CustomApplication">
 					<echo>Skipping @{type}</echo>
-			  </case>
+				</case>
 				<case value="Flow">
 					<echo>Skipping @{type}</echo>
-			  </case>
+				</case>
 				<case value="Workflow">
 					<echo>Skipping @{type}</echo>
-			  </case>
+				</case>
 				<case value="PermissionSet">
 					<echo>Skipping @{type}</echo>
-			  </case>
+				</case>
 				<case value="SharingRules">
 					<echo>Skipping @{type}</echo>
-			  </case>
+				</case>
 				<case value="ApprovalProcess">
 					<echo>Skipping @{type}</echo>
-			  </case>
-			<case value="Profile">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			<case value="ApexClass">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			<case value="ApexTrigger">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			<case value="ApexComponent">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			<case value="ApexPage">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			<case value="Certificate">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="NamedCredential">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="GlobalPicklist">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="CustomFeedFilter">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="EmbeddedServiceConfig">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="Flow">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="FlowDefinition">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="MatchingRules">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="MatchingRule">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="SharingRules">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="SharingOwnerRule">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="SharingCriteriaRule">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="DelegateGroup">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="ActionLinkGroupTemplate">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="PathAssistant">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="PlatformCachePartition">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="EmbeddedServiceConfig">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="ReportType">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="Report">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="Dashboard">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="ApprovalProcess">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="SamlSsoConfig">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="ConnectedApp">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="Layout">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="Profile">
-				<echo>Skipping @{type}</echo>
-			  </case>
-			  <case value="PermissionSet">
-				<echo>Skipping @{type}</echo>
-			  </case>
+				</case>
+				<case value="Profile">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="ApexClass">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="ApexTrigger">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="ApexComponent">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="ApexPage">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="Certificate">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="NamedCredential">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="GlobalPicklist">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="CustomFeedFilter">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="EmbeddedServiceConfig">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="Flow">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="FlowDefinition">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="MatchingRules">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="MatchingRule">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="SharingRules">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="SharingOwnerRule">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="SharingCriteriaRule">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="DelegateGroup">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="ActionLinkGroupTemplate">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="PathAssistant">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="PlatformCachePartition">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="EmbeddedServiceConfig">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="ReportType">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="Report">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="Dashboard">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="ApprovalProcess">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="SamlSsoConfig">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="ConnectedApp">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="Layout">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="Profile">
+					<echo>Skipping @{type}</echo>
+				</case>
+				<case value="PermissionSet">
+					<echo>Skipping @{type}</echo>
+				</case>
 			  <default>
 			<local name="typefile"/>
 			<property name="typefile" value="@{dir}${file.separator}@{typefilename}"/>
