@@ -37,16 +37,16 @@
 
 	  <!-- Post Deploy all work -->
       <antcall target="retrieveFromUnpackaged1"/>
-      <!--<antcall target="retrieveFromUnpackaged2"/>-->
-      <!--<antcall target="retrieveFromUnpackaged3"/>-->
-      <!--<antcall target="retrieveFromUnpackaged4"/>-->
-      <!--<antcall target="retrieveFromUnpackaged5"/>-->
+      <antcall target="retrieveFromUnpackaged2"/>
+      <antcall target="retrieveFromUnpackaged3"/>
+      <antcall target="retrieveFromUnpackaged4"/>
+      <antcall target="retrieveFromUnpackaged5"/>
       
 	  <antcall target="deployUnpackaged1"/>
-      <!--<antcall target="deployUnpackaged2"/>-->
-      <!--<antcall target="deployUnpackaged3"/>-->
-      <!--<antcall target="deployUnpackaged4"/>-->
-      <!--<antcall target="deployUnpackaged5"/>-->
+      <antcall target="deployUnpackaged2"/>
+      <antcall target="deployUnpackaged3"/>
+      <antcall target="deployUnpackaged4"/>
+      <antcall target="deployUnpackaged5"/>
 
 	  
       <!-- Retrieve the contents of the source org -->
