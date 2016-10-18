@@ -14,14 +14,6 @@
     </types>
     <types>
         <members>*</members>
-        <name>PermissionSet</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>SharingRules</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>Flow</name>
     </types>
     <types>
@@ -38,19 +30,11 @@
     </types>
     <types>
         <members>*</members>
-        <name>Layout</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>ApexComponent</name>
     </types>
     <types>
         <members>*</members>
         <name>ApexPage</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Profile</name>
     </types>
     <version>37.0</version>
 </Package>
