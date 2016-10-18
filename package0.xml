@@ -11,6 +11,8 @@
     <types>
         <members>Opportunity.Customer_Portal</members>
         <members>Opportunity.Sales_Opportunity</members>
+        <members>SBQQ__Quote__c.Approved</members>
+        <members>SBQQ__Quote__c.Unapproved</members>
         <name>RecordType</name>
     </types>
     <version>37.0</version>
