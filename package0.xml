@@ -5,8 +5,8 @@
         <name>BusinessProcess</name>
     </types>
     <types>
-        <members>Opportunity.RecordType</members>
-        <name>CustomField</name>
+        <members>*</members>
+        <name>CustomMetadata</name>
     </types>
     <types>
         <members>Opportunity.Customer_Portal</members>
