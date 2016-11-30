@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="IlluminatedCloudSettings">
+    <option name="connections">
+      <list>
+        <IlluminatedCloudConnection>
+          <option name="loginUrl" value="https://test.salesforce.com/" />
+          <option name="name" value="EV Staging" />
+          <option name="organizationType" value="SANDBOX" />
+          <option name="password" value="dff9dfccdfcedfc9dfeadf9adf9bdf9cdfe5dfc9dfde" />
+          <option name="securityToken" value="dfe2dfc2dfcfdf9bdfcedfc0df9ddffedff3dfd3dfe7dfe3df9edfc2dfccdfebdfcfdff3dfcfdfcddfcedffadfe9dfe8" />
+          <option name="showAdvanced" value="true" />
+          <option name="username" value="jody.crutchfield@atginfo.com.ev.staging" />
+        </IlluminatedCloudConnection>
+      </list>
+    </option>
+    <option name="selectedConnectionIndex" value="0" />
+  </component>
+</project>
