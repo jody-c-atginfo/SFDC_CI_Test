@@ -5,8 +5,21 @@
         <name>BusinessProcess</name>
     </types>
     <types>
-        <members>*</members>
-        <name>CustomMetadata</name>
+        <members>Credit__c</members>
+        <members>Credit_Lineitem__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>CreditdetailsController</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>newCredit</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>Opportunity.Type</members>
+        <name>CustomField</name>
     </types>
     <types>
         <members>Opportunity.Customer_Portal</members>
