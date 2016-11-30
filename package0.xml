@@ -5,6 +5,10 @@
         <name>BusinessProcess</name>
     </types>
     <types>
+        <members>Opportunity.RecordType</members>
+        <name>CustomField</name>
+    </types>
+    <types>
         <members>Opportunity.Customer_Portal</members>
         <members>Opportunity.Sales_Opportunity</members>
         <members>SBQQ__Quote__c.Approved</members>
